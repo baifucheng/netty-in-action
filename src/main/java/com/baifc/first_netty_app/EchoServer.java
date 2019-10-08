@@ -1,7 +1,6 @@
-package com.baifc.$2_first_netty;
+package com.baifc.first_netty_app;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;
@@ -68,9 +67,11 @@ public class EchoServer {
             // 异步的绑定服务器，调用sync方法阻塞，直到绑定完成
             // 对sync的调用，将会导致当前Thread阻塞，一直阻塞到绑定操作完成为止
             ChannelFuture future = bootstrap.bind().sync();
+            System.out.println("-----------bind end-------------");
 
             // 获取channel的closeFuture，并且阻塞当前线程，直到它完成
             future.channel().closeFuture().sync();
+            System.out.println("-----------closeFuture end-------------");
         } finally {
             // 关闭EventLoopGroup，并关闭所有资源，包括所有被创建的线程
             group.shutdownGracefully().sync();

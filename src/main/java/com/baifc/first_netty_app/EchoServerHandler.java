@@ -1,4 +1,4 @@
-package com.baifc.$2_first_netty;
+package com.baifc.first_netty_app;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
